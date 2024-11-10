@@ -1,483 +1,160 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>seven</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="seven">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Seven</title><meta name="author" content="seven"><meta name="copyright" content="seven"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Seven">
 <meta property="og:url" content="https://sevens.xin/index.html">
-<meta property="og:site_name" content="seven">
+<meta property="og:site_name" content="Seven">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411101719767.jpg">
 <meta property="article:author" content="seven">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="seven" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411101719767.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://sevens.xin/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">seven</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Seven',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-11-10 22:32:43',
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411101719767.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411101725028.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Seven</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Seven</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/uncategorized/Webctf/" title="无标题">无标题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-09T05:59:42.579Z" title="发表于 2024-11-09 13:59:42">2024-11-09</time></span></div><div class="content">Web第一周 10.14 网络协议HTTP报文——用于http协议交互的信息 HTTP GET请求原理： 在Web浏览器和服务器之间进行通信时，浏览器可以使用两种主要的方法向服务器发送数据： 使用GET给后端传参：在?后跟变量名字，不同的变量之间用&amp;隔开，在url后添加&#x2F;? 使用POST提交变量：利用hackbar复制 get 的 url，选择 postdata，填入 b&#x3D;2，选择 execute。即可发送请求。 http请求伪造： 如何获取指定的header信息？——$_SERVER[ &#39;HTTP_HEADER_NAME&#39; ]                                   $_SERVER    PHP中的预定义变量，包含了头信息、路径、脚本位置                                                                           HEADER_NAME   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/uncategorized/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-03T12:56:08.765Z" title="发表于 2024-11-03 20:56:08">2024-11-03</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411101719767.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">seven</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/uncategorized/Webctf/" title="无标题">无标题</a><time datetime="2024-11-09T05:59:42.579Z" title="发表于 2024-11-09 13:59:42">2024-11-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/uncategorized/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-03T12:56:08.765Z" title="发表于 2024-11-03 20:56:08">2024-11-03</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sevens.xin"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
+    <ul class="card-archive-list">
   
-    <article id="post-Webctf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/uncategorized/Webctf/" class="article-date">
-  <time class="dt-published" datetime="2024-11-09T05:59:42.579Z" itemprop="datePublished">2024-11-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><p>第一周</p>
-<p>10.14</p>
-<h2 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h2><h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h3><p>——用于http协议交互的信息</p>
-<p>HTTP GET请求原理：</p>
-<p>在Web浏览器和服务器之间进行通信时，浏览器可以使用两种主要的方法向服务器发送数据：</p>
-<p>使用GET给后端传参：在?后跟变量名字，不同的变量之间用&amp;隔开，在url后添加&#x2F;?</p>
-<p>使用POST提交变量：利用hackbar复制 get 的 url，选择 postdata，填入 b&#x3D;2，选择 execute。即可发送请求。</p>
-<p>http请求伪造：</p>
-<p>如何获取指定的header信息？——<code>$_SERVER[ &#39;HTTP_HEADER_NAME&#39; ]</code>                                   $_SERVER    PHP中的预定义变量，包含了头信息、路径、脚本位置                                                                           HEADER_NAME    获取头部名称，规律是全大写，连接线变成下划线</p>
-<p>用bp抓包发送到repeater修改伪造信息重新获取响应                   </p>
-<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>URL（Uniform Resource Locator）：统一资源定位符，它是用来表示互联网上的某个资源地址，互联网上的每个文件都有一个唯一的 URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
-<p>URL 一般由三部组成：</p>
-<p>协议（或称为服务方式）。<br>存有该资源的主机 IP 地址（有时也包括端口号）。<br>主机资源的具体地址。如目录和文件名等。</p>
-<p>URL编解码：</p>
-<p>URL编码（百分号编码）是一种在URL中表示特殊字符的方式，以确保这些字符（保留字符、非ASCII字符）在互联网上传输时不会被误解或丢失。主要目的是使数据在URL中安全地传输。</p>
-<p>工作原理：URL编码通过将非安全字符替换为 <code>%</code> 后跟它们的ASCII十六进制表示</p>
-<p>URL编码的原则就是使用安全的字符（没有特殊用途或者特殊意义的可打印字符）去表示那些不安全的字符</p>
-<p>URL参数：</p>
-<p><strong>URL 参数</strong>是附加在网页地址（URL）末尾的一些键值对，用来传递信息给服务器或网页。它们常用于在浏览器中通过GET请求向服务器发送数据。</p>
-<p>URL 参数总是附加在URL的末尾，用一个问号 <code>?</code> 作为起始标记。接下来是参数的键值对，每对参数用等号 <code>=</code> 分开，多个参数之间用 <code>&amp;</code> 符号分隔。</p>
-<h3 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h3><p>——文件传输协议</p>
-<p>两种模式：standard（active主动方式）、passive（PASV被动方式）</p>
-<h3 id="SSH服务"><a href="#SSH服务" class="headerlink" title="SSH服务"></a>SSH服务</h3><p>用于计算机之间加密登录，对数据进行加密传输的服务，主要用在远程登录。</p>
-<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2><p>robots.txt是一个文本文件，是一个协议，即搜索引擎中访问网站要查看的第一个文件，robots.txt文件告诉蜘蛛程序在服务器上 什么文件是可以被查看的。</p>
-<p>10.15</p>
-<h2 id="有关备份文件的知识"><a href="#有关备份文件的知识" class="headerlink" title="有关备份文件的知识"></a>有关备份文件的知识</h2><p>常见的备份文件后缀名有: .git .svn .swp .svn .~ .bak .bash_history</p>
-<p>看到存在备份文件index.php.bak访问 <a target="_blank" rel="noopener" href="http://10.10.10.175:32770/index.php.bak">http://10.10.10.175:32770/index.php.bak</a></p>
-<p>10.18</p>
-<h2 id="burpsuite"><a href="#burpsuite" class="headerlink" title="burpsuite"></a>burpsuite</h2><h3 id="bp相关功能："><a href="#bp相关功能：" class="headerlink" title="bp相关功能："></a>bp相关功能：</h3><p>Target(目标)——显示目标目录结构的的一个功能。</p>
-<p>Proxy(代理)——拦截HTTP&#x2F;S的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许你拦截，查看，修改在两个方向上的原始数据流。</p>
-<p>Spider(蜘蛛)——应用智能感应的网络爬虫，它能完整的枚举应用程序的内容和功能。</p>
-<p>Scanner(扫描器)——高级工具，执行后，它能自动地发现web 应用程序的安全漏洞。<br>Intruder(入侵)——一个定制的高度可配置的工具，对web应用程序进行自动化攻击，如：枚举标识符，收集有用的数据，以及使用fuzzing 技术探测常规漏洞。</p>
-<p>Repeater(中继器)——一个靠手动操作来触发单独的HTTP 请求，并分析应用程序响应的工具。</p>
-<p>Sequencer(会话)——用来分析那些不可预知的应用程序会话令牌和重要数据项的随机性的工具。</p>
-<p>Decoder(解码器)——进行手动执行或对应用程序数据者智能解码编码的工具。</p>
-<p>Comparer(对比)——通常是通过一些相关的请求和响应得到两项数据的一个可视化的“差异”。</p>
-<p>Extender(扩展)——可以让你加载Burp Suite的扩展，使用你自己的或第三方代码来扩展Burp Suit的功能。</p>
-<p>Options(设置)——对Burp Suite的一些设置。</p>
-<h3 id="FoxyProxy-Standard"><a href="#FoxyProxy-Standard" class="headerlink" title="FoxyProxy Standard"></a>FoxyProxy Standard</h3><p>快速代理插件，来开启代理服务。方便使用BurpSuite给浏览器开启127.0.0.1:8080代理服务</p>
-<h3 id="关于127-0-0-1-8080"><a href="#关于127-0-0-1-8080" class="headerlink" title="关于127.0.0.1:8080"></a>关于127.0.0.1:8080</h3><p>127.0.0.1  “本地回环地址”，指向本地计算机，向这个地址发送数据时，数据会直接在本机处理。</p>
-<p>8080端口用于指定计算机上的特定服务或应用程序</p>
-<p>10.19</p>
-<h2 id="网段的划分"><a href="#网段的划分" class="headerlink" title="网段的划分"></a>网段的划分</h2><h3 id="子网掩码："><a href="#子网掩码：" class="headerlink" title="子网掩码："></a>子网掩码：</h3><p>为了使目的主机所在网路的路由器能够很方便的找到目的子网，引入“子网掩码”。</p>
-<p>将某个ip地址划分成网络地址和主机地址两部分，用来分割子网和区分ip的网段 将目的主机的IP地址与子网掩码进行按位与操作，便可以确定目的主机所在的网络号</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/9eea110f2c59f4db6b2c96e54e2dce05.png" alt="img"></p>
-<p>子网掩码是一个32位的数字，由两部分组成：一串连续的1后面跟着一串0。这些1表示网络地址部分，而0表示主机地址部分。例如：</p>
-<ul>
-<li>255.255.255.0 是一个常见的子网掩码，其中前24位是1（11111111.11111111.11111111.00000000），表示网络部分，后8位是0，表示主机部分。</li>
-</ul>
-<h3 id="CIDR表示法"><a href="#CIDR表示法" class="headerlink" title="CIDR表示法"></a>CIDR表示法</h3><p>CIDR（Classless Inter-Domain Routing）表示法是一种更简洁的方式来表示子网掩码。它使用一个斜线（&#x2F;）后面跟着一个数字来表示子网掩码。这个数字表示网络部分的位数。例如：</p>
-<ul>
-<li>&#x2F;24 表示子网掩码的前24位是网络部分，这等同于子网掩码255.255.255.0。</li>
-</ul>
-<h3 id="网段划分："><a href="#网段划分：" class="headerlink" title="网段划分："></a>网段划分：</h3><p>Ip地址（网络标识（网络号+子网号）+主机号）+子网掩码（a.b.c.d&#x2F;x）</p>
-<h2 id="VMware-的三种网络模式"><a href="#VMware-的三种网络模式" class="headerlink" title="[VMware]的三种网络模式"></a>[VMware]的三种网络模式</h2><h3 id="briged桥接模式"><a href="#briged桥接模式" class="headerlink" title="briged桥接模式"></a>briged桥接模式</h3><p>直接连接物理网络，在桥接模式下，虚拟机网路适配器与物理网络适配器通过虚拟网桥连接，虚拟机实际上通过物理主机的网卡进行通信。</p>
-<p>虚拟机与宿主机和物理机处于同一局域网中，虚拟机直接连接到宿主机所在的物理网络，可以和本局域网中的其他真实主机进行通讯。</p>
-<p>桥接模式下的虚拟机必须与主机在同一网段且子网掩码、网关与DNS也要与主机网卡一致。</p>
-<p>联网过程：虚拟机——路由器——互联网</p>
-<p>主机和虚拟机——“兄弟关系”</p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>理解为：地址转换（虚拟机Ip地址转化成主机ip地址）</p>
-<p>虚拟机和主机共享一个对外的Ip地址，虚拟机不能直接接触到外部网络，所有的网络请求都由主机进行转发。虚拟网卡只是作为主机与虚拟机通信的接口。</p>
-<p>联网过程：</p>
-<p>虚拟机——主机——路由器——互联网</p>
-<p>主机和虚拟机——“父子关系”</p>
-<h3 id="仅主机模式"><a href="#仅主机模式" class="headerlink" title="仅主机模式"></a>仅主机模式</h3><p>虚拟网卡仅对主机可见，并在虚拟机和主机系统之间提供网络连接，一般情况下，在此模式下虚拟机无法连接到互联网。可以看成是一个内部网络。</p>
-<p>10.20</p>
-<h2 id="弱口令及爆破"><a href="#弱口令及爆破" class="headerlink" title="弱口令及爆破"></a>弱口令及爆破</h2><p>弱口令通常认为容易被别人猜测或被破解工具破解的口令均为弱口令。弱口令指的是仅包含简单数字和字母的口令，例如”123”、”abc”等。</p>
-<p>爆破弱口令流程：</p>
-<p>bp抓到包后，右键发送到intruder模块–&gt;添加$到需要爆破的字段–&gt;在payload处设置要爆破的字典–&gt;点击右上角的start attack按钮即可开始爆破，可以根据返回的长度（或者状态码）来判断是否爆破成功</p>
-<h2 id="弱类型语言——PHP"><a href="#弱类型语言——PHP" class="headerlink" title="弱类型语言——PHP"></a>弱类型语言——PHP</h2><p>PHP脚本以&lt;?php开始，以? &gt;结束</p>
-<p>变量以$符号开始，后跟变量名，必须以字母或者下划线开始，并区分大小写</p>
-<p>array用于创建数组，count()函数获取数组长度，foreach()关联数组的创建及遍历</p>
-<h3 id="局部作用域和全局作用域"><a href="#局部作用域和全局作用域" class="headerlink" title="局部作用域和全局作用域"></a>局部作用域和全局作用域</h3><p>global关键字用于函数内访问全局变量                                                                                       static作用域：使某个局部变量在函数结束后不被删除</p>
-<h3 id="两种比较符号："><a href="#两种比较符号：" class="headerlink" title="两种比较符号："></a>两种比较符号：</h3><p>&#x3D;&#x3D;弱等于：在比较前把两种字符串类型转成相同的在进行比较，即只比较值。</p>
-<p>&#x3D;&#x3D;&#x3D;强等于：先比较类型，不同直接返回不相等，既比较值也比较类型。</p>
-<p>示例simple.php</p>
-<p>**<code>$a == 0</code>**：传递a&#x3D;a</p>
-<p>这里的 <code>$a</code> 是字符串 <code>&quot;a&quot;</code>。在 PHP 中，弱类型比较时，非数字的字符串与数字进行比较时，字符串会被转换为数字。</p>
-<p>字符串 <code>&quot;a&quot;</code> 会被 PHP 转换为 <code>0</code>，因为 PHP 会尝试从字符串的开头提取数字，而 <code>&quot;a&quot;</code> 并没有任何可提取的数字部分，所以转换的结果是 <code>0</code>。</p>
-<p>因此，<code>&quot;a&quot; == 0</code> 为 <strong>真</strong>。</p>
-<h3 id="错误控制运算符"><a href="#错误控制运算符" class="headerlink" title="错误控制运算符@"></a>错误控制运算符@</h3><p>当在某个表达式前加上 <code>@</code>，如果该表达式出错，PHP 不会显示错误信息，而是返回 <code>false</code> 或 <code>null</code></p>
-<h3 id="index-php"><a href="#index-php" class="headerlink" title="index.php"></a>index.php</h3><p>index.php是一个用PHP语言开发的网站的首页，index是普遍意义上的“首页”，也就是你输入一个域名后会打开一个页面，基本上就是index.xxxx(基本上首页都不会把index.xxxx显示在url里，但也不绝对)</p>
-<p>index.php是一种常见的网页文件，它通常用于网站的首页或默认页面。在使用PHP编程语言的网站中，index.php文件是网站的入口点，它负责处理和呈现网页内容。</p>
-<p>当访问一个使用PHP编写的网站时，服务器会首先查找并执行index.php文件。该文件可以包含PHP代码、HTML标记和其他相关内容，用于生成并呈现动态的网页内容。</p>
-<h3 id="PHP2-PHPS"><a href="#PHP2-PHPS" class="headerlink" title="PHP2(PHPS)"></a>PHP2(PHPS)</h3><p><strong>phps文件</strong>就是php的源代码文件，通常用于提供给用户直接通过Web浏览器查看php代码的内容。</p>
-<p>因为用户无法直接通过Web浏览器“看到”php文件的内容，所以需要用phps文件代替。用户访问phps文件就能看到对应的php文件的源码。</p>
-<p>第二周</p>
-<p>10.21</p>
-<h3 id="PHP序列化和反序列化"><a href="#PHP序列化和反序列化" class="headerlink" title="PHP序列化和反序列化"></a>PHP序列化和反序列化</h3><p>序列化字符串的标准格式： <code>O:&lt;类名的长度&gt;:&quot;&lt;类名&gt;&quot;:&lt;成员属性的个数&gt;:&#123;S:&lt;成员属性名的长度&gt;:&quot;&lt;成员属 性名&gt;&quot;;......&#125;</code></p>
-<p>序列化serialize()：是将<strong>变量或对象</strong>转换成<strong>字符串</strong>的过程（ 序列化只作用于对象，不序列化方法），用于存储或传递 PHP 的值的过程中，同时不丢失其类型和结构。</p>
-<p>反序列化unserialize()：将<strong>字符串</strong>转换成<strong>变量</strong>或<strong>对象</strong>的过程，是一种将存储在字符串中的PHP对象转换为PHP变量的过程。这可以通过使用unserialize()函数来实现。</p>
-<h3 id="PHP魔术方法"><a href="#PHP魔术方法" class="headerlink" title="PHP魔术方法"></a>PHP魔术方法</h3><p>__sleep()</p>
-<blockquote>
-<p>serialize() 函数会检查类中是否存在一个魔术方法 __sleep()。如果存在，该方法会先被调用，然后才执行序列化操作。此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误。</p>
-</blockquote>
-<p>对象被序列化之前触发，返回需要被序列化存储的成员属性，删除不必要的属性。</p>
-<p>__wakeup()</p>
-<blockquote>
-<p>unserialize() 会检查是否存在一个 __wakeup() 方法。如果存在，则会先调用 __wakeup 方法，预先准备对象需要的资源。</p>
-<p>漏洞：当序列化字符串表示对象属性个数的数字值大于真实类中属性的个数时就会跳过__wakeup的执行。</p>
-</blockquote>
-<p>预先准备对象资源，返回void，常用于反序列化操作中重新建立数据库连接或执行其他初始化操作。</p>
-<h2 id="SQL注入初步"><a href="#SQL注入初步" class="headerlink" title="SQL注入初步"></a>SQL注入初步</h2><p>SQL：结构化查询语言（Structured Query Language），是一种关系型数据库查询的标准编程语言，用于存取数据以及查询、更新、删除和管理关系型数据库（即SQL是一种数据库查询语言）</p>
-<p>注入产生的原因是后台服务器在接收相关参数时未做好过滤直接带入到数据库中查询，导致可以拼接执行构造的SQL语句</p>
-<p>10.23</p>
-<h2 id="SQL注入表达式"><a href="#SQL注入表达式" class="headerlink" title="SQL注入表达式"></a>SQL注入表达式</h2><p><code>?id=1&#39;order by 3 --+</code>      ———&gt; 利用数据库的脆弱点，尝试探测出表中有多少列或者其他信息。多次尝试order by命令来确定表中确切列数。</p>
-<p>id&#x3D;1  查询参数；’用单引号来结束字符串部分，进一步加入自己的代码；</p>
-<p>order by 用来排序的命令  3表示按查询结果第三列进行排序，用来测试数据库表中是否有至少三列数据。如果第三列不存在，查询会出错，攻击者就可以通过这个错误信息推断出表的列数。</p>
-<p>**<code>--+</code>**：这是SQL注释符的用法。<code>--</code> 后面的内容都会被当作注释忽略，不会被执行。因此，在这条SQL语句之后的部分将不会运行。这样可以控制SQL查询的结束点。</p>
-<h2 id="判断sql语句是否是拼接，且是字符型还是数字型"><a href="#判断sql语句是否是拼接，且是字符型还是数字型" class="headerlink" title="判断sql语句是否是拼接，且是字符型还是数字型"></a>判断sql语句是否是拼接，且是字符型还是数字型</h2><p>1.SQL拼接的判断：看SQL查询中是否直接拼接了用户输入的参数。</p>
-<p>2.判断字符型还是数字型：如果查询中参数用引号包裹，通常是字符型；如果没有引号，则是数字型。</p>
-<p>ps:如何通过向url传入?id&#x3D;1’和?id&#x3D;1’–+来说明字符型还是数字型？                       （假设为字符型则存在sql查询id &#x3D; ‘1’）</p>
-<p>传入 ?id&#x3D;1’——&gt; id &#x3D;’1’’（第二个单引号破坏了语法会报错）                                                                传入 ?id&#x3D;1’–+   ——&gt; id &#x3D; ‘1’–+’（–为注释符号实际被解析为id &#x3D; ‘1’查询正常）</p>
-<p>3.<strong>字符型字段</strong>和<strong>数字型字段</strong>在SQL中的处理方式</p>
-<p><strong>字符型字段</strong>：</p>
-<ul>
-<li>SQL语法规定，字符型字段的值必须用单引号包裹。</li>
-<li>当遇到注释符 <code>--</code> 时，SQL引擎会忽略后续内容，使得查询可以正常执行。因此，传入 <code>1&#39;--+</code> 能被成功注释掉，查询只会执行 <code>id = &#39;1&#39;</code> 的部分。</li>
-</ul>
-<p><strong>数字型字段</strong>：</p>
-<ul>
-<li>SQL语法规定，数字型字段的值不能用单引号包裹。</li>
-<li>当数字型字段遇到 <code>1&#39;--+</code> 时，SQL引擎先解析 <code>1</code>，但在遇到单引号 <code>&#39;</code> 时出错，因为数字值不允许引号。在错误发生前，注释符 <code>--</code> 没有机会生效，因此导致语法错误。</li>
-</ul>
-<h2 id="id-1-union-select-1-database-3"><a href="#id-1-union-select-1-database-3" class="headerlink" title="?id=-1&#39; union select 1,database(),3 --"></a><code>?id=-1&#39; union select 1,database(),3 --</code></h2><h3 id="id-1的运用"><a href="#id-1的运用" class="headerlink" title="id&#x3D;-1的运用"></a>id&#x3D;-1的运用</h3><p>使用数据库user表中通常不存在的ID确保第一个查询不会返回任何记录，而继续执行union select部分，这样数据库不会因为第一个查询返回了数据而影响到第二个查询的执行，进而能够控制第二部分的返回结果，例如在 <code>UNION SELECT</code> 中插入函数调用（如 <code>database()</code>）来获取数据库信息。</p>
-<h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><p>通过 <code>UNION</code>，数据库将强制返回三列，分别是数字 <code>1</code>，当前数据库的名字，以及数字 <code>3</code>。<code>UNION</code> 合并了两个查询的结果，即使第一个查询没有数据返回，注入的 <code>SELECT 1, database(), 3</code> </p>
-<h2 id="关于一段代码的理解"><a href="#关于一段代码的理解" class="headerlink" title="关于一段代码的理解"></a>关于一段代码的理解</h2><p><code>?id=-1&#39;union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;--+</code></p>
-<p>目的是从数据库中提取特定的信息</p>
-<p><code>information_schema.tables</code></p>
-<p><code>information_schema</code> 是 系统数据库，包含有关所有其他数据库及其对象（如表、列、索引等）的信息。</p>
-<p><code>tables</code> 是 <code>information_schema</code> 中的一个表，它存储了所有数据库中的表的元数据。包括每个表的名称、类型、创建时间、所属数据库等。</p>
-<p><code>where table_schema=&#39;security&#39;</code></p>
-<p><code>table_schema</code> 列用于指定表所属的数据库名称。在这个条件下，查询只返回属于名为 <code>security</code> 的数据库中的表的信息。</p>
-<p>&#96;&#96;GROUP_CONCAT(table_name)&#96;</p>
-<p><code>GROUP_CONCAT</code> 是一个聚合函数，用于将多行数据合并为一个字符串。它会把选定列的值连接在一起，默认使用逗号 <code>,</code> 分隔。在这个查询中，<code>table_name</code> 是 <code>information_schema.tables</code> 中的一列，表示每个表的名称。</p>
-<p>10.24国际程序员节</p>
-<p>SQL注入基本知识：</p>
-<h2 id="几个名词"><a href="#几个名词" class="headerlink" title="几个名词"></a>几个名词</h2><ul>
-<li><strong>information_schema</strong> 系统数据库，记录当前数据库的数据库，表，列，用户权限等信息</li>
-<li><strong>schemata</strong> 储存mysql所有数据库的基本信息，包括数据库名，编码类型路径等</li>
-<li><strong>tables</strong>储存mysql中的表信息，包括这个表是基本表还是系统表，数据库的引擎是什么，表有多少行，创建时间，最后更新时间等</li>
-<li><strong>columns</strong>储存mysql中表的列信息，包括这个表的所有列以及每个列的信息，该列是表中的第几列，列的数据类型，列的编码类型，列的权限，列的注释等</li>
-</ul>
-<h2 id="联合注入（union注入）基本步骤"><a href="#联合注入（union注入）基本步骤" class="headerlink" title="联合注入（union注入）基本步骤"></a>联合注入（union注入）基本步骤</h2><p>注：联合注入需要页面有回显位。如果数据 不显示只有对错页面显示我们可以选择布尔盲注。</p>
-<h3 id="确定字段数量（-id-1’-order-by-n-–-）"><a href="#确定字段数量（-id-1’-order-by-n-–-）" class="headerlink" title="确定字段数量（?id&#x3D;1’ order by n –+）"></a>确定字段数量（?id&#x3D;1’ order by n –+）</h3><p>从1开始改变n的大小，如果网页报错证明n大于真实，order by n是对第n个字段进行排序的意思</p>
-<h3 id="判断回显位"><a href="#判断回显位" class="headerlink" title="判断回显位"></a>判断回显位</h3><p>利用id&#x3D;-1保证前面的查询查不出数据确保后面的联合查询能正常运行。</p>
-<p><code>?id=-1&#39; union select 1,2,3 --+</code></p>
-<h3 id="获取系统数据库名"><a href="#获取系统数据库名" class="headerlink" title="获取系统数据库名"></a>获取系统数据库名</h3><p>group_concat()的作用是把回显放到一行里，便于观察</p>
-<p><code>?id=-1&#39; union select 1,2,group_concat(schema_name) from information_schema.schemata --+</code></p>
-<h3 id="获取当前数据库名"><a href="#获取当前数据库名" class="headerlink" title="获取当前数据库名"></a>获取当前数据库名</h3><p><code>?id=-1&#39; union select 1,2,database() --+</code></p>
-<h3 id="获取数据库中的表"><a href="#获取数据库中的表" class="headerlink" title="获取数据库中的表"></a>获取数据库中的表</h3><p><code>?id=-1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39; --+</code></p>
-<p>即获取security数据库下的所有表名</p>
-<h3 id="获取表里的列名"><a href="#获取表里的列名" class="headerlink" title="获取表里的列名"></a>获取表里的列名</h3><p>获得users表下的所有字段名</p>
-<p><code>?id=-1&#39;union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39;--+</code></p>
-<h3 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h3><p>如果我们想获得users表下username以及password的值：</p>
-<p><code>?id=-1&#39; union select 1,2,group_concat(username , password) from users --+</code></p>
-<h2 id="sql万能密码"><a href="#sql万能密码" class="headerlink" title="sql万能密码"></a>sql万能密码</h2><p>永真语句——    ‘ or 1&#x3D;’1 ‘or’&#x3D;’or’</p>
-<p>union插入临时表：利用查询不存在数据返回的虚拟临时数据来进行登录。</p>
-<p>用\构造：可以传入<code>username=admin\&amp;password=or 2&gt;1#</code>，这时后台接受到的就是：</p>
-<p>select * from users where username&#x3D;’admin&#39; and password&#x3D;’ or 2&gt;1#’;</p>
-<p>\会闭合掉admin后面那个引号，相当于接收到where username&#x3D;’admin and password&#x3D;’ or 2&gt;1 ，这显然是一个永真判断，虽然不存在admin and password&#x3D;这个用户，但我们用or 2&gt;1让这个条件永远成立了。</p>
-<p>10.27</p>
-<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><p><em><strong>盲注</strong></em>:页面没有报错回显，不知道数据库具体返回值的情况下，对数据库中的内容进行猜解，实行SQL注入。</p>
-<p><em><strong>布尔盲注：</strong></em>在注入语句后，盲注不是返回查询到的结果，而只是返回查询是否成功。（即：返回查询语句的布尔值）</p>
-<h3 id="布尔盲注的条件"><a href="#布尔盲注的条件" class="headerlink" title="布尔盲注的条件:"></a><strong>布尔盲注的条件:</strong></h3><p> ?id&#x3D;1’ and 1&#x3D;1–+ 真页面true</p>
-<p> ?id&#x3D;1’ and 1&#x3D;2–+ 假页面false</p>
-<h3 id="三个函数："><a href="#三个函数：" class="headerlink" title="三个函数："></a>三个函数：</h3><p>length():length((select database()))判断数据库的长度                                                          substr():substr(a,b,c)  a是要截取的字符串，b是截取的位置，c是截取的长度                                       ascii():将截取的字符转换成对应的ascii码，根据数字找到对应的字符</p>
-<h3 id="手动注入——爆爆爆"><a href="#手动注入——爆爆爆" class="headerlink" title="手动注入——爆爆爆"></a>手动注入——爆爆爆</h3><p>1、判断输入是否有闭合符（<code>id=1 and 1=2</code>）<br>如果显示you are in 表示成功进入，则存在闭合符，即是字符型，因为1&#x3D;2 这个假命题被当成一个字符串处理而不是判断语句。</p>
-<p>2、判断闭合符<br>首先猜闭合符，例如 猜  ‘)  如果没显示you are in 表示猜中了一部分<br>然后把 ‘) 的一部分去掉变成  ‘  ，此时显示you are in 说明猜中了，闭合符就是  ‘  </p>
-<p>3、判断当前数据库名</p>
-<p>判断当前数据库名长度，<code>id=1&#39; and length(database()) =n --+</code>                                     猜数据库名，<code>id=1&#39; and substr(database(),1,1)=&#39;s&#39; --+</code> 可手动多次判断</p>
-<p>或使用bp抓包进行爆破，爆破类型选择Cluster bomb，因为我们需要爆破的有两个位置分别是数据库名的第几位和数据库名，两个位置选中add并写字典。               因为字典一是代表数据库名的第几个字母，我们已经知道数据库名是8个字母组成，所以字典一的内容就是1-8。字典二是爆破数据库名，数据库名是由字母组成所以字典二是字母a-z。</p>
-<p>4、判断指定库的所有表</p>
-<p>判断当前库有多少个表</p>
-<p><code>id=1&#39; and (select count(table_name) from information_schema.tables  where table_schema=&#39;security&#39;)=4 -- -</code></p>
-<p>判断指定库中表名最多有几个字母</p>
-<p><code>id=1&#39; and length((select table_name from information_scheam.tables</code><br><code>where table_schema=database() limit 0,1))=6 -- -</code></p>
-<p>Burp Suite进行爆破。<br>爆破位置：?id&#x3D;1 and substr((select table_name from information_schema.tables<br>where table_schema&#x3D;database() limit <strong>0</strong>,1),<strong>1</strong>,1)&#x3D;’<strong>a</strong>‘</p>
-<p>字典一：security库中有4个表，所以字典一内容是0-3                                                                   字典二:指定库中最长表名有n个字母，所以字典二内容是1-n(可以挨个试试看看最长是几位，我在爆破时直接取了20)                                                                                              字典三：指定表的表名，所以字典内容是字母a-z</p>
-<p>5、判断指定库指定表的字段</p>
-<p>判断指定表中有几个字段</p>
-<p><code>id=1&#39; and (select count(column_name) from information_schema.columns</code><br><code>where table_schema=&#39;security&#39; and table_name=&#39;users&#39;)=3 -- -</code></p>
-<p>判断指定库的指定表中字段最多有几个字母</p>
-<p><code>id=1&#39; and length((select column_name from information_scheam.columns</code><br><code>where table_schema=database() and table_name=&#39;users&#39; limit 0,1))=2 -- -</code></p>
-<p>Burp Suite进行爆破。<br>爆破位置：?id&#x3D;1 and substr((select column_name from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’ limit <strong>0</strong>,1),<strong>1</strong>,1)&#x3D;’<strong>a</strong>‘– -</p>
-<p>字典一：security库中的users表中有三个字段，所以字典一的内容是0-2                                  字典二：指定字段名最多有n个字母（我没有尝试最多有几个字母因为是靶场不存在因攻击数量太大产生的负面影响，所以字典二的内容我写的是1-20）                               字典三：指定库的指定表的字段名，所以字典三的内容是字母a-z</p>
-<p>6、爆破内容</p>
-<p>判断内容中有几个用户</p>
-<p><code>id=1&#39; and (select count(username) from security.users)=13 -- -</code></p>
-<p>判断内容名有最多有几个字母</p>
-<p><code>id=1&#39; and length((select username from security.users limit 0,1))=4 -- -</code></p>
-<p>Burp Suite进行爆破。</p>
-<p>第三周</p>
-<p>10.28</p>
-<h2 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h2><p>根据页面的响应时间来判断是否存在注入</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
-<li>页面没有回显</li>
-<li>页面不显示数据库的报错</li>
-<li>无论成功还是失败，页面只响应一种结果</li>
-</ol>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.判断注入点</p>
-<p>?id&#x3D;1’ and if(1, sleep(5), 3) – a	延时5秒响应<br>?id&#x3D;1’ and if(0,sleep(5),3) – a	正常响应</p>
-<p>If()函数第一个参数是条件表达式，1转换为true执行第二个参数位置的代码，即sleep(5)，延时5秒相应；0转换为false执行第三个参数位置的代码，即3，自定义占位符无实际意义。</p>
-<p>2.脱库（判断长度、枚举字符）</p>
-<p>判断返回结果的长度：                                                                                                                                      ?id&#x3D;1’ and if((length(database())&gt;1),sleep(5),3) –+                                                                 判断第一个字符的ascll码是否大于1：                                                                                             ?id&#x3D;1’ and if((ascii(substr(database()),1,1)&gt;1),sleep(5),3) –+</p>
-<p>…猜数据库名、表名长度、表名、字段长度、字段名、数据</p>
-<p>10.29</p>
-<h2 id="数据库及MySQL语句"><a href="#数据库及MySQL语句" class="headerlink" title="数据库及MySQL语句"></a>数据库及MySQL语句</h2><p>从php直接登录或从命令行cmd登录连接：mysql  -p  127.0.0.1(ip)  -P  3306(port)  -uroot(用户名)  -proot(密码）      </p>
-<p>对库：</p>
-<p>show databases  （查看当前MySQL服务器中有哪些数据库）                                                      creat database   （创建新的数据库）                                                                                              use 数据库名  （切换数据库）                                                                                                                           select database()  （查看当前正在使用的数据库）                                                               drop database 数据库名（删除数据库）</p>
-<p>对表：</p>
-<p>show tables  （查看当前数据库中有哪些表）                                                                   desc 表名  （查询表结构）                                                                                                          select*from 表名  （查询表中的数据）</p>
-<p>SELECT语句：(*)</p>
-<p>查询表中指定的列：select 列名 from 表名                                                                                 查询多个列：select 列名1,列名2 from 表名                                                                            查询所有列：select * from 表名                                                                                         用where进行条件查询：select 列名 from 表名 where 列名&#x3D;“xx”</p>
-<p>INSERT插入语句：</p>
-<p><img src="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411021334659.png" alt="屏幕截图 2024-10-29 215343"></p>
-<p>…update…delete操作在此不作解释</p>
-<h2 id="AMP"><a href="#AMP" class="headerlink" title="AMP"></a>AMP</h2><p>“PHP编写的页面程序运行在apache上，数据通过MySQL进行承载和读取，最后将页面呈现在用户的浏览器上”</p>
-<p><img src="https://apricity-1331040527.cos.ap-beijing.myqcloud.com/202411021335290.png" alt="1"></p>
-<p>10.30</p>
-<p>配置了一晚上的picgo…</p>
-<p>11.1</p>
-<p>emmm…利用栈进行表达式求值</p>
-<p>11.2</p>
-<h2 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h2><p>上传了一个可执行的文件到服务器并执行（某些网站中没有严格限制用户上传文件的后缀名及类型，导致可以上传任意PHP文件，并能够在远程服务器上执行任意PHP脚本）</p>
-<h3 id="Webshell"><a href="#Webshell" class="headerlink" title="Webshell"></a>Webshell</h3><p>以php等网页文件形式存在的一种命令执行环境（网页后门），混在web目录下正常的网页文件，隐蔽性高，可以轻松穿越防火墙，且访问 WebShell 时不会留下系统日志</p>
-<h3 id="一句话木马："><a href="#一句话木马：" class="headerlink" title="一句话木马："></a>一句话木马：</h3><p>利用文件上传漏洞，通过攻击者传递的命令获得服务器的控制权。</p>
-<p><code>&lt;?php @eval($_POST[&#39;attack&#39;]);?&gt;</code>                                                                                                                                          @表示后面即使执行错误也不报错；eval()函数表示括号内的语句字符串都当作代码执行。$_POST[‘attack’]表示从页面中获得attack这个参数值。</p>
-<p>例：使用eval()函数执行PHP代码                                                                                                                                                 <code>&lt;?php eval($_POST[&#39;cmd&#39;]); ?&gt;</code>                                                                                                                                                 通过POST请求传递PHP代码，<code>eval()</code> 会将这些代码作为PHP代码执行。</p>
-<h3 id="文件上传waf绕过"><a href="#文件上传waf绕过" class="headerlink" title="文件上传waf绕过"></a>文件上传waf绕过</h3><h3 id="伪造文件格式——绕过文件头验证"><a href="#伪造文件格式——绕过文件头验证" class="headerlink" title="伪造文件格式——绕过文件头验证"></a>伪造文件格式——绕过文件头验证</h3><p>GIF89a伪造文件格式的实现：</p>
-<p>（文件头标识符：文件类型在文件开头都有独特的二进制标识符，用来标识文件格式。如：GIF文件通常以 <code>GIF89a</code> 或 <code>GIF87a</code> 开头）</p>
-<p><strong>在恶意代码前插入伪造的文件头</strong>：为了使一个PHP脚本伪装成GIF文件，在PHP代码前加上 <code>GIF89a</code>，即伪造一个GIF文件头。服务器很可能不会进一步检查文件内容，认为这是一个合法的图片，从而通过了上传验证。</p>
-<h3 id="配置文件-ini"><a href="#配置文件-ini" class="headerlink" title="配置文件.ini"></a>配置文件.ini</h3><p>.ini文件主要用于服务器端的PHP配置，定义PHP的设置参数</p>
-<p>.user.ini为特定目录设置PHP配置，允许在不访问PHP主配置（<code>php.ini</code>）的情况下，对特定目录的PHP行为进行局部配置，而且可以由用户在应用运行时动态配置（即<code>auto_prepend_file</code> 可由 <code>.user.ini</code> 文件动态设置且定期加载，允许攻击者不重启服务器即可立即执行恶意代码。）</p>
-<h3 id="PHP配置项的利用"><a href="#PHP配置项的利用" class="headerlink" title="PHP配置项的利用"></a>PHP配置项的利用</h3><p><code>auto_prepend_file</code>                                                                  允许在执行某个 PHP 文件之前，自动加载并运行指定的文件。即指定的文件中的内容会首先执行，可以被用来控制 PHP 代码执行的顺序</p>
-<p>通过上传 <code>.user.ini</code> 文件来设置 <code>auto_prepend_file</code>，并将其指向一个伪装为图片的恶意文件，比如 <code>a.jpg</code>（auto_prepend_file &#x3D; “a.jpg”）接着上传命名为 <code>a.jpg</code>的文件。绕过文件类型检测，该文件伪装成图片文件，在文件头部添加 <code>GIF89a</code></p>
-<p>11.3</p>
-<h2 id="利用科学计数法绕过长度限制"><a href="#利用科学计数法绕过长度限制" class="headerlink" title="利用科学计数法绕过长度限制"></a>利用科学计数法绕过长度限制</h2><p>用<code>1e9</code>的格式表示大数值，PHP自动识别为浮点数，假设限制5位数字，此时长度仅为3个字符，从而绕过长度限制</p>
-<h2 id="用php脚本实现哈希值爆破"><a href="#用php脚本实现哈希值爆破" class="headerlink" title="用php脚本实现哈希值爆破"></a>用php脚本实现哈希值爆破</h2><p>&#96;<?php                                                                        									for ($b=0; $b < 100000; $b++) {         if(substr(md5($b),-6,6) ==='8b184b'){                                         echo $b;}                                                           } ?>&#96;&#96;</p>
-<p>关于substr函数：<code>substr(string $string, int $start, ?int $length = null): string</code></p>
-<p>**<code>$string</code>**：要操作的原始字符串，以上即为 MD5 哈希值字符串。                        **<code>$start</code>**：提取的起始位置。<code>-6</code> 表示从字符串的倒数第 6 个字符开始。                  **<code>$length</code>**：要提取的字符数，这里是 <code>6</code>，表示提取 6 个字符。</p>
-<p>第四周</p>
-<p>11.4</p>
-<h2 id="js前端校验的绕过"><a href="#js前端校验的绕过" class="headerlink" title="js前端校验的绕过"></a>js前端校验的绕过</h2><p>删除js校验代码（f12调试器禁用js）、更改js校验中的白名单、先改文件后缀名通过校验后抓包更改后缀上传至服务器</p>
-<p>11.8 </p>
-<h2 id="分布式配置文件-htaccess"><a href="#分布式配置文件-htaccess" class="headerlink" title="分布式配置文件.htaccess"></a>分布式配置文件.htaccess</h2><p>.htaccess文件解析漏洞可以利用其将我们所的文件都解析成php或者是特定的文件解析为php</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sevens.xin/uncategorized/Webctf/" data-id="cm3bbtnq900057kuua4up1skg" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/uncategorized/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-11-03T12:56:08.765Z" itemprop="datePublished">2024-11-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/uncategorized/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sevens.xin/uncategorized/hello-world/" data-id="cm3bbtnq700047kuue2m8bbpo" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/uncategorized/Webctf/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/uncategorized/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 seven<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">2</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-10T14:32:43.246Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By seven</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
